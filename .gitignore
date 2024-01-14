@@ -1,2 +1,4 @@
 /walkieTalkie/venv/*
 /walkieTalkie/.idea/*
+/walkieTalkie/*.mp3
+/walkieTalkie/*.wav

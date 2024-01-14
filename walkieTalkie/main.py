@@ -6,15 +6,16 @@ import numpy as np
 from scipy.io.wavfile import write
 import cutlet
 from fuzzywuzzy import fuzz
+import os
 
-api_key = ""
+api_key = os.getenv('OPENAI_API_KEY')
 
 
 def capture(tts):
     client = OpenAI(
         api_key=api_key
     )
-    speech_file_path = Path(__file__).parent / "question.mp3"
+    speech_file_path = str(Path(__file__).parent) + "/question.mp3"
     response = client.audio.speech.create(
         model="tts-1",
         voice="alloy",
@@ -29,7 +30,7 @@ def play_audio(file_path):
 
 
 def record_audio(duration=5, sample_rate=44100):
-    speech_file_path = Path(__file__).parent / "response.wav"
+    speech_file_path = str(Path(__file__).parent) + "/3response.wav"
     print(f"Recording {duration} seconds of audio...")
     audio_data = sd.rec(int(duration * sample_rate), samplerate=sample_rate, channels=1, dtype=np.int16)
     sd.wait()  # Wait until recording is finished
