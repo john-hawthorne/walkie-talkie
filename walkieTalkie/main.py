@@ -91,8 +91,12 @@ if submit == 'Y':
     print("Question: " + question)
     print("Expected: " + expected_response)
     print("Actual:" + actual_response.text)
-    expected_response_romaji = convert_to_romaji(expected_response)
-    print("Expected (Romaji):" + expected_response_romaji)
-    actual_response_romaji = convert_to_romaji(actual_response.text)
-    print("Actual (Romaji):" + actual_response_romaji)
-    print(get_percent_diff(expected_response_romaji, actual_response_romaji))
+
+    if language == "3":
+        expected_response_romaji = convert_to_romaji(expected_response)
+        print("Expected (Romaji):" + expected_response_romaji)
+        actual_response_romaji = convert_to_romaji(actual_response.text)
+        print("Actual (Romaji):" + actual_response_romaji)
+        print(get_percent_diff(expected_response_romaji, actual_response_romaji))
+    else:
+        print(get_percent_diff(expected_response, actual_response))
