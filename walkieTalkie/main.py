@@ -30,7 +30,7 @@ def play_audio(file_path):
 
 
 def record_audio(duration=5, sample_rate=44100):
-    speech_file_path = str(Path(__file__).parent) + "/3response.wav"
+    speech_file_path = str(Path(__file__).parent) + "/response.wav"
     print(f"Recording {duration} seconds of audio...")
     audio_data = sd.rec(int(duration * sample_rate), samplerate=sample_rate, channels=1, dtype=np.int16)
     sd.wait()  # Wait until recording is finished
