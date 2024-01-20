@@ -65,7 +65,7 @@ def get_percent_diff(expected, actual):
     return fuzz.ratio(expected, actual)
 
 
-language = input("Choose Language: Spanish (1), French (2), or Japanese (3) ")
+language = input("Choose Language: Spanish (1), French (2), Japanese (3), or English (4) ")
 iso = ""
 if language == "1":
     iso = "es"
@@ -73,6 +73,8 @@ elif language == "2":
     iso = "fr"
 elif language == "3":
     iso = "ja"
+elif language == "4":
+    iso = "en"
 
 # prompt user for question
 question = input("What question would you like to ask?")
@@ -99,4 +101,4 @@ if submit == 'Y':
         print("Actual (Romaji):" + actual_response_romaji)
         print(get_percent_diff(expected_response_romaji, actual_response_romaji))
     else:
-        print(get_percent_diff(expected_response, actual_response))
+        print(get_percent_diff(expected_response, actual_response.text))
